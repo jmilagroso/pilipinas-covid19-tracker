@@ -1,0 +1,7 @@
+anaconda
+altair
+jupyter
+jupyter_server
+pandas
+pytz
+voila
