@@ -22,6 +22,13 @@ Streamlit.io
 `https://share.streamlit.io/jmilagroso/pilipinas-covid19-tracker/main/app.py <https://share.streamlit.io/jmilagroso/pilipinas-covid19-tracker/main/app.py>`_
 
 
+Screenshot
+----------
+
+.. image:: streamlit-io-jmilagroso-pilipinas-covid19-tracker-main-app-py.png
+   :width: 600
+
+
 License
 -------
 
