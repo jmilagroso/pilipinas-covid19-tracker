@@ -46,6 +46,9 @@ df = df.loc[df['date'] >= str(n_days_ago.date())]
 
 st.write("Source: https://covid.ourworldindata.org")
 
+with st.empty():
+    st.write(df.describe())
+
 base1 = alt.Chart(df).mark_bar().encode(
     x='monthdate(date):O',
     tooltip=['new_cases']
@@ -158,9 +161,6 @@ text2 = base1.mark_text(
 
 with st.empty():
     (base1.encode(y='people_vaccinated') + text1).properties(title=f'Total Number of Vaccinated (as of {today})') | (base2.encode(y='people_fully_vaccinated', color=alt.value("#228B22")) + text2).properties(title=f'Total Number of Fully Vaccinated (as of {today})')
-
-with st.empty():
-    st.write(df.describe())
     
 st.write("Powered By Altair, Pandas, Pytz and streamlit.io")
 
