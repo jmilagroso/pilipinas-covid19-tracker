@@ -159,6 +159,9 @@ text2 = base1.mark_text(
 with st.empty():
     (base1.encode(y='people_vaccinated') + text1).properties(title=f'Total Number of Vaccinated (as of {today})') | (base2.encode(y='people_fully_vaccinated', color=alt.value("#228B22")) + text2).properties(title=f'Total Number of Fully Vaccinated (as of {today})')
 
+with st.empty():
+    df.describe()
+    
 st.write("Powered By Altair, Pandas, Pytz and streamlit.io")
 
 st.write("Made from Google Colab by Jay Milagroso <j.milagroso@gmail.com>")
