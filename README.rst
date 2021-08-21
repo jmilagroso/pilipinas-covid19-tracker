@@ -19,7 +19,7 @@ The ``pilipinas-covid19-tracker`` was written to help track Covid19 stats in PH.
 Streamlit.io
 -------------
 
-`https://share.streamlit.io/jmilagroso/pilipinas-covid19-tracker/main/app.py <https://share.streamlit.io/jmilagroso/pilipinas-covid19-tracker/main/app.py>`_
+`https://bit.ly/3j2NuzB <https://bit.ly/3j2NuzB>`_
 
 
 Screenshot
