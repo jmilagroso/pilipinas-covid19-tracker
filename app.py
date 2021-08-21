@@ -56,7 +56,7 @@ base1 = alt.Chart(df).mark_bar().encode(
 text1 = base1.mark_text(
     align='center',
     baseline='line-top',
-    color='#fff',
+    color='#404040',
     angle=70,
     dy=-5
 ).encode(
@@ -95,7 +95,7 @@ base1 = alt.Chart(df).mark_bar().encode(
 text1 = base1.mark_text(
     align='center',
     baseline='line-top',
-    color='#fff',
+    color='#404040',
     angle=70,
     dy=-5
 ).encode(
@@ -112,7 +112,7 @@ base2 = alt.Chart(df).mark_bar().encode(
 text2 = base1.mark_text(
     align='center',
     baseline='line-top',
-    color='#fff',
+    color='#404040',
     angle=70,
     dy=-5
 ).encode(
