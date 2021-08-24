@@ -44,7 +44,7 @@ n_days_ago = today - timedelta(days=14)
 df = df.loc[df['location'] == 'Philippines']
 df = df.loc[df['date'] >= str(n_days_ago.date())]
 
-st.write("Philippines Covid-19 Statistics")
+st.markdown("<h1 style='text-align: center;'>Philippines Covid-19 Statistics</h1>", unsafe_allow_html=True)
 
 st.write("Source: https://covid.ourworldindata.org")
 
