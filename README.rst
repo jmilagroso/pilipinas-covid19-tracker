@@ -25,7 +25,7 @@ Streamlit.io
 Screenshot
 ----------
 
-.. image:: streamlit-io-jmilagroso-pilipinas-covid19-tracker-main-app-py-v2.png
+.. image:: streamlit-io-jmilagroso-pilipinas-covid19-tracker-main-app-py-v3.png
    :width: 600
 
 
