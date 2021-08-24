@@ -48,9 +48,6 @@ st.markdown("<h1 style='text-align: center;'>PH Covid-19 Statistics</h1>", unsaf
 
 st.write("Source: https://covid.ourworldindata.org")
 
-with st.empty():
-    st.write(df.describe())
-
 base1 = alt.Chart(df).mark_bar().encode(
     x='monthdate(date):O',
     tooltip=['new_cases']
