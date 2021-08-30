@@ -3,5 +3,6 @@ altair
 jupyter
 jupyter_server
 pandas
+plotly-express
 pytz
 voila
