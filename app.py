@@ -85,7 +85,7 @@ text2 = base1.mark_text(
 )
 
 with st.empty():
-    (base1.encode(y='new_cases') + text1).properties(title=f'New Cases for the past 14 days') | (base2.encode(y='new_deaths', color=alt.value("#f54242")) + text2).properties(title=f'New Deaths for the past 14 days
+    (base1.encode(y='new_cases') + text1).properties(title=f'New Cases for the past 14 days') | (base2.encode(y='new_deaths', color=alt.value("#f54242")) + text2).properties(title=f'New Deaths for the past 14 days')
 
 
 base1 = alt.Chart(df).mark_bar().encode(
