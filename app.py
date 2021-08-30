@@ -126,28 +126,19 @@ text2 = base1.mark_text(
 with st.empty():
     (base1.encode(y='total_tests', color=alt.value("#ffb347")) + text1).properties(title=f'Total Number of Tests for the past 14 days') | (base2.encode(y='people_fully_vaccinated', color=alt.value("#228B22")) + text2).properties(title=f'Total Number of Fully Vaccinated for the past 14 days')
 
-st.write("Source: https://github.com/ExpDev07/coronavirus-tracker-api")
-
-response = urlopen('https://coronavirus-tracker-api.herokuapp.com/v2/locations/212')
-json_data = response.read().decode('utf-8', 'replace')
-
-data = json.loads(json_data)
-
-confirmed = data['location']['timelines']['confirmed']['timeline']
-deaths = data['location']['timelines']['deaths']['timeline']
 
 today = datetime.now() + timedelta(hours=0)
 n_days_ago = today - timedelta(days=90)
 
-df_confirmed = pd.DataFrame.from_dict({'date': confirmed.keys(), 'count': confirmed.values()}, orient='columns')
-df_confirmed = df_confirmed.loc[df_confirmed['date'] >= str(n_days_ago.date())]
-fig = px.bar(df_confirmed, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
+df = load_data()
+df = df.loc[df['location'] == 'Philippines']
+df = df.loc[df['date'] >= str(n_days_ago.date())]
+
+fig = px.bar(df, x='date', y='total_cases', color='total_cases', title="Total Number of Confirmed Cases for the past 90 days")
 fig.update_layout(width=1100,height=500)
 st.plotly_chart(fig)
 
-df_deaths = pd.DataFrame.from_dict({'date': deaths.keys(), 'count': deaths.values()}, orient='columns')
-df_deaths = df_deaths.loc[df_deaths['date'] >= str(n_days_ago.date())]
-fig = px.bar(df_deaths, x='date', y='count', color='count', title="Total Number of Deaths for the past 90 days")
+fig = px.bar(df_deaths, x='date', y='total_deaths', color='total_deaths', title="Total Number of Deaths for the past 90 days")
 fig.update_layout(width=1100,height=500)
 st.plotly_chart(fig)
 
