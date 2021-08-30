@@ -102,7 +102,7 @@ text1 = base1.mark_text(
     angle=70,
     dy=-5
 ).encode(
-    text='tests_per_case:Q'
+    text='total_tests:Q'
 )
 
 base2 = alt.Chart(df).mark_bar().encode(
