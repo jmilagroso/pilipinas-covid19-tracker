@@ -144,7 +144,7 @@ df_confirmed = df_confirmed.loc[df_confirmed['date'] >= str(n_days_ago.date())]
 
 with st.empty():
     fig = px.bar(df_confirmed, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, width=1024,height=300)
 
 df_deaths = pd.DataFrame.from_dict({'date': deaths.keys(), 'count': deaths.values()}, orient='columns')
 df_deaths = df_deaths.loc[df_deaths['date'] >= str(n_days_ago.date())]
