@@ -151,6 +151,6 @@ fig = px.bar(df_deaths, x='date', y='count', color='count', title="Total Number 
 fig.update_layout(width=1100,height=500)
 st.plotly_chart(fig)
 
-st.write("Powered By Altair, Pandas, Pytz and streamlit.io")
+st.write("Powered By Altair, Pandas, Plotly Express, Pytz and Streamlit")
 
 st.write("Made from Google Colab by Jay Milagroso <j.milagroso@gmail.com>")
