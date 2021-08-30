@@ -144,14 +144,16 @@ df = df.loc[df['date'] >= str(n_days_ago.date())]
 
 with st.empty():
     fig = px.bar(df, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
-    fig.show()
+    # fig.show()
+    st.plotly_chart(fig)
 
 df = pd.DataFrame.from_dict({'date': deaths.keys(), 'count': deaths.values()}, orient='columns')
 df = df.loc[df['date'] >= str(n_days_ago.date())]
 
 with st.empty():
     fig = px.bar(df, x='date', y='count', color='count', title="Total Number of Deaths for the past 90 days")
-    fig.show()
+    # fig.show()
+    st.plotly_chart(fig)
 
 st.write("Powered By Altair, Pandas, Pytz and streamlit.io")
 
