@@ -142,8 +142,6 @@ n_days_ago = today - timedelta(days=90)
 df = pd.DataFrame.from_dict({'date': confirmed.keys(), 'count': confirmed.values()}, orient='columns')
 df = df.loc[df['date'] >= str(n_days_ago.date())]
 
-st.write(df.head())
-
 fig = px.bar(df, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
 fig.show()
 
