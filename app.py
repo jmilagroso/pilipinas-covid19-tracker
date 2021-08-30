@@ -142,19 +142,16 @@ n_days_ago = today - timedelta(days=90)
 df_confirmed = pd.DataFrame.from_dict({'date': confirmed.keys(), 'count': confirmed.values()}, orient='columns')
 df_confirmed = df_confirmed.loc[df_confirmed['date'] >= str(n_days_ago.date())]
 
-# with st.empty():
-#     fig = px.bar(df, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
-#     # fig.show()
-#     st.plotly_chart(fig)
+with st.empty():
+    fig = px.bar(df_confirmed, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
+    st.plotly_chart(fig)
 
 df_deaths = pd.DataFrame.from_dict({'date': deaths.keys(), 'count': deaths.values()}, orient='columns')
 df_deaths = df_deaths.loc[df_deaths['date'] >= str(n_days_ago.date())]
 
 with st.empty():
-    fig1 = px.bar(df_confirmed, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
-    fig2 = px.bar(df_deaths, x='date', y='count', color='count', title="Total Number of Deaths for the past 90 days")
-    st.plotly_chart(fig1)
-    st.plotly_chart(fig2)
+    fig = px.bar(df_confirmed, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
+    st.plotly_chart(fig)
 
 st.write("Powered By Altair, Pandas, Pytz and streamlit.io")
 
