@@ -148,6 +148,7 @@ st.plotly_chart(fig)
 df_deaths = pd.DataFrame.from_dict({'date': deaths.keys(), 'count': deaths.values()}, orient='columns')
 df_deaths = df_deaths.loc[df_deaths['date'] >= str(n_days_ago.date())]
 fig = px.bar(df_deaths, x='date', y='count', color='count', title="Total Number of Deaths for the past 90 days")
+fig.update_layout(width=1100,height=500)
 st.plotly_chart(fig)
 
 st.write("Powered By Altair, Pandas, Pytz and streamlit.io")
