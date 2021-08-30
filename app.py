@@ -142,7 +142,8 @@ n_days_ago = today - timedelta(days=90)
 df_confirmed = pd.DataFrame.from_dict({'date': confirmed.keys(), 'count': confirmed.values()}, orient='columns')
 df_confirmed = df_confirmed.loc[df_confirmed['date'] >= str(n_days_ago.date())]
 fig = px.bar(df_confirmed, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
-st.plotly_chart(fig, width=1024,height=300)
+fig.update_layout(width=1024,height=300)
+st.plotly_chart(fig)
 
 df_deaths = pd.DataFrame.from_dict({'date': deaths.keys(), 'count': deaths.values()}, orient='columns')
 df_deaths = df_deaths.loc[df_deaths['date'] >= str(n_days_ago.date())]
