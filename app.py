@@ -135,11 +135,11 @@ df = df.loc[df['location'] == 'Philippines']
 df = df.loc[df['date'] >= str(n_days_ago.date())]
 
 fig = px.bar(df, x='date', y='total_cases', color='total_cases', title="Total Number of Confirmed Cases for the past 90 days")
-fig.update_layout(width=1100,height=500)
+fig.update_layout(width=1200,height=600)
 st.plotly_chart(fig)
 
-fig = px.bar(df_deaths, x='date', y='total_deaths', color='total_deaths', title="Total Number of Deaths for the past 90 days")
-fig.update_layout(width=1100,height=500)
+fig = px.bar(df, x='date', y='total_deaths', color='total_deaths', title="Total Number of Deaths for the past 90 days")
+fig.update_layout(width=1200,height=600)
 st.plotly_chart(fig)
 
 st.write("Powered By Altair, Pandas, Plotly Express, Pytz and Streamlit")
