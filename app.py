@@ -142,16 +142,15 @@ n_days_ago = today - timedelta(days=90)
 df = pd.DataFrame.from_dict({'date': confirmed.keys(), 'count': confirmed.values()}, orient='columns')
 df = df.loc[df['date'] >= str(n_days_ago.date())]
 
-with st.empty():
-    fig = px.bar(df, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
-    fig.show()
+
+fig = px.bar(df, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
+fig.show()
 
 df = pd.DataFrame.from_dict({'date': deaths.keys(), 'count': deaths.values()}, orient='columns')
 df = df.loc[df['date'] >= str(n_days_ago.date())]
 
-with st.empty():
-    fig = px.bar(df, x='date', y='count', color='count', title="Total Number of Deaths for the past 90 days")
-    fig.show()
+fig = px.bar(df, x='date', y='count', color='count', title="Total Number of Deaths for the past 90 days")
+fig.show()
 
 st.write("Powered By Altair, Pandas, Pytz and streamlit.io")
 
