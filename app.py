@@ -126,7 +126,7 @@ text2 = base1.mark_text(
 with st.empty():
     (base1.encode(y='total_tests', color=alt.value("#ffb347")) + text1).properties(title=f'Total Number of Tests for the past 14 days') | (base2.encode(y='people_fully_vaccinated', color=alt.value("#228B22")) + text2).properties(title=f'Total Number of Fully Vaccinated for the past 14 days')
 
-# st.write("Source: https://github.com/ExpDev07/coronavirus-tracker-api")
+st.write("Source: https://github.com/ExpDev07/coronavirus-tracker-api")
 
 response = urlopen('https://coronavirus-tracker-api.herokuapp.com/v2/locations/212')
 json_data = response.read().decode('utf-8', 'replace')
@@ -141,17 +141,13 @@ n_days_ago = today - timedelta(days=90)
 
 df_confirmed = pd.DataFrame.from_dict({'date': confirmed.keys(), 'count': confirmed.values()}, orient='columns')
 df_confirmed = df_confirmed.loc[df_confirmed['date'] >= str(n_days_ago.date())]
-
-with st.empty():
-    fig = px.bar(df_confirmed, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
-    st.plotly_chart(fig, width=1024,height=300)
+fig = px.bar(df_confirmed, x='date', y='count', color='count', title="Total Number of Confirmed Cases for the past 90 days")
+st.plotly_chart(fig, width=1024,height=300)
 
 df_deaths = pd.DataFrame.from_dict({'date': deaths.keys(), 'count': deaths.values()}, orient='columns')
 df_deaths = df_deaths.loc[df_deaths['date'] >= str(n_days_ago.date())]
-
-with st.empty():
-    fig = px.bar(df_deaths, x='date', y='count', color='count', title="Total Number of Deaths for the past 90 days")
-    st.plotly_chart(fig)
+fig = px.bar(df_deaths, x='date', y='count', color='count', title="Total Number of Deaths for the past 90 days")
+st.plotly_chart(fig)
 
 st.write("Powered By Altair, Pandas, Pytz and streamlit.io")
 
