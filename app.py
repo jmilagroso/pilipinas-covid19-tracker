@@ -50,62 +50,23 @@ st.markdown("<h1 style='text-align: center;'>PH Covid-19 Tracker</h1>", unsafe_a
 
 st.write("Source: https://covid.ourworldindata.org")
 
-base1 = alt.Chart(df).mark_bar().encode(
-    x='monthdate(date):O',
-    tooltip=['new_cases']
-).properties(
-    width=500
-)
 
-text1 = base1.mark_text(
-    align='center',
-    baseline='line-top',
-    color='#404040',
-    angle=70,
-    dy=-5
-).encode(
-    text='new_cases:Q'
-)
-
-base2 = alt.Chart(df).mark_bar().encode(
-    x='monthdate(date):O',
-    tooltip=['new_deaths']
-).properties(
-    width=500
-)
-
-text2 = base1.mark_text(
-    align='center',
-    baseline='line-top',
-    color='#404040',
-    angle=70,
-    dy=-5
-).encode(
-    text='new_deaths:Q'
-)
-
-#with st.empty():
-    #(base1.encode(y='new_cases') + text1).properties(title=f'New Cases for the past 14 days') | (base2.encode(y='new_deaths', color=alt.value("#f54242")) + text2).properties(title=f'New Deaths for the past 14 days')
 fig1 = px.bar(
     df, 
     x='date', 
     y='new_cases',
-    hover_data=['new_cases', 'total_cases'], 
-
-    height=500
+    hover_data=['new_cases', 'total_cases']
 )
+st.plotly_chart(fig1)
 
 fig2 = px.bar(
     df, 
     x='date', 
     y='new_deaths',
     hover_data=['new_deaths', 'total_deaths'], 
-    title=f"New Deaths (as of {today}",
-    height=500
+    title=f"New Deaths (as of {today}"
 )
-
-with st.empty():
-    (st.plotly_chart(fig1)) | (st.plotly_chart(fig2))
+st.plotly_chart(fig2)
 
 base1 = alt.Chart(df).mark_bar().encode(
     x='monthdate(date):O',
