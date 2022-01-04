@@ -23,7 +23,7 @@ def load_data():
 df = load_data()
 
 today = datetime.now()
-n_days_ago = today - timedelta(days=60)
+n_days_ago = today - timedelta(days=365)
 
 df = df.loc[df['location'] == 'Philippines']
 df = df.loc[df['date'] >= str(n_days_ago.date())]
