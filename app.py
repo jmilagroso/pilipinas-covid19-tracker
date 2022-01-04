@@ -36,8 +36,8 @@ fig1 = px.bar(
     df, 
     x='date', 
     y='new_cases',
-    color="new_cases",
-    title="New Cases for the past year",
+    color='new_cases',
+    title='New Cases for the past year',
     hover_data=['new_cases', 'total_cases']
 )
 st.plotly_chart(fig1, use_container_width=True)
@@ -46,7 +46,7 @@ fig2 = px.bar(
     df, 
     x='date', 
     y='new_deaths',
-    title="New Deaths for the past year",
+    title='New Deaths for the past year',
     hover_data=['new_deaths', 'total_deaths']
 )
 st.plotly_chart(fig2, use_container_width=True)
@@ -55,7 +55,8 @@ fig3 = px.bar(
     df, 
     x='date', 
     y='total_tests',
-    title="Total Tests for the past 1 year",
+    color='total_tests',
+    title='Total Tests for the past 1 year'
 )
 st.plotly_chart(fig3, use_container_width=True)
 
@@ -63,7 +64,7 @@ fig4 = px.bar(
     df, 
     x='date', 
     y='people_fully_vaccinated',
-    title="Total Fully Vaccinated for the past year"
+    title='Total Fully Vaccinated for the past year'
 )
 st.plotly_chart(fig4, use_container_width=True)
 
@@ -73,10 +74,22 @@ df = load_data()
 df = df.loc[df['location'] == 'Philippines']
 df = df.loc[df['date'] >= str(n_days_ago.date())]
 
-fig = px.bar(df, x='date', y='total_cases', color='total_cases', title="Total Number of Cases for the past 90 days")
+fig = px.bar(
+    df, 
+    x='date', 
+    y='total_cases', 
+    color='total_cases', 
+    title='Total Number of Cases for the past 90 days'
+)
 st.plotly_chart(fig, use_container_width=True)
 
-fig = px.bar(df, x='date', y='total_deaths', color='total_deaths', title="Total Number of Deaths for the past 90 days")
+fig = px.bar(
+    df, 
+    x='date', 
+    y='total_deaths', 
+    color='total_deaths', 
+    title='Total Number of Deaths for the past 90 days'
+)
 st.plotly_chart(fig, use_container_width=True)
 
 st.write("Powered By Altair, Pandas, Plotly Express, Pytz and Streamlit")
