@@ -38,7 +38,7 @@ fig1 = px.bar(
     y='new_cases',
     hover_data=['new_cases', 'total_cases']
 )
-fig1.update_layout(width=1220)
+fig1.update_layout(width=1250)
 st.plotly_chart(fig1)
 
 fig2 = px.bar(
