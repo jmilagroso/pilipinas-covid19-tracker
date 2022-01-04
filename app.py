@@ -86,17 +86,25 @@ text2 = base1.mark_text(
 
 #with st.empty():
     #(base1.encode(y='new_cases') + text1).properties(title=f'New Cases for the past 14 days') | (base2.encode(y='new_deaths', color=alt.value("#f54242")) + text2).properties(title=f'New Deaths for the past 14 days')
-fig = px.bar(
+fig1 = px.bar(
     df, 
     x='date', 
     y='new_cases',
     hover_data=['new_cases', 'total_cases'], 
 
-    title=f"New Cases (as of {today}",
     height=500
 )
-st.plotly_chart(fig)
+st.plotly_chart(fig1)
 
+fig2 = px.bar(
+    df, 
+    x='date', 
+    y='new_deaths',
+    hover_data=['new_deaths', 'total_deaths'], 
+    title=f"New Deaths (as of {today}",
+    height=500
+)
+st.plotly_chart(fig2)
 
 base1 = alt.Chart(df).mark_bar().encode(
     x='monthdate(date):O',
