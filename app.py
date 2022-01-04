@@ -56,42 +56,21 @@ df = load_data()
 df = df.loc[df['location'] == 'Philippines']
 df = df.loc[df['date'] >= str(n_days_ago.date())]
 
-base1 = alt.Chart(df).mark_bar().encode(
-    x='monthdate(date):O',
-    tooltip=['total_tests']
-).properties(
-    width=500
+fig3 = px.bar(
+    df, 
+    x='date', 
+    y='total_tests'
 )
+fig3.update_layout(use_container_width=True)
+st.plotly_chart(fig3)
 
-text1 = base1.mark_text(
-    align='center',
-    baseline='line-top',
-    color='#404040',
-    angle=70,
-    dy=-5
-).encode(
-    text='total_tests:Q'
+fig4 = px.bar(
+    df, 
+    x='date', 
+    y='people_fully_vaccinated',
 )
-
-base2 = alt.Chart(df).mark_bar().encode(
-    x='monthdate(date):O',
-    tooltip=['people_fully_vaccinated']
-).properties(
-    width=500
-)
-
-text2 = base1.mark_text(
-    align='center',
-    baseline='line-top',
-    color='#404040',
-    angle=70,
-    dy=-5
-).encode(
-    text='people_fully_vaccinated:Q'
-)
-
-with st.empty():
-    (base1.encode(y='total_tests', color=alt.value("#ffb347")) + text1).properties(title=f'Total Number of Tests for the past 14 days') | (base2.encode(y='people_fully_vaccinated', color=alt.value("#228B22")) + text2).properties(title=f'Total Number of Fully Vaccinated for the past 14 days')
+fig4.update_layout(use_container_width=True)
+st.plotly_chart(fig4)
 
 n_days_ago = today - timedelta(days=90)
 
