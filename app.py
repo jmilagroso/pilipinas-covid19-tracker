@@ -32,6 +32,11 @@ st.markdown("<h1 style='text-align: center;'>PH Covid-19 Tracker</h1>", unsafe_a
 
 st.write("Source: https://covid.ourworldindata.org")
 
+
+fig0 = px.scatter(df['date'], x="total_cases", y="total_deaths", size="pop", color="continent",
+           hover_name="location", log_x=True, size_max=60)
+st.plotly_chart(fig0, use_container_width=True)
+
 fig1 = px.bar(
     df, 
     x='date', 
@@ -39,8 +44,7 @@ fig1 = px.bar(
     color="new_cases",
     hover_data=['new_cases', 'total_cases']
 )
-fig1.update_layout(width=1200)
-st.plotly_chart(fig1)
+st.plotly_chart(fig1, use_container_width=True)
 
 fig2 = px.bar(
     df, 
@@ -48,8 +52,7 @@ fig2 = px.bar(
     y='new_deaths',
     hover_data=['new_deaths', 'total_deaths']
 )
-fig2.update_layout(width=1200)
-st.plotly_chart(fig2)
+st.plotly_chart(fig2, use_container_width=True)
 
 fig3 = px.bar(
     df, 
