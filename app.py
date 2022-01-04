@@ -37,6 +37,7 @@ fig1 = px.bar(
     x='date', 
     y='new_cases',
     color="new_cases",
+    title="New Cases for the past 1 year",
     hover_data=['new_cases', 'total_cases']
 )
 st.plotly_chart(fig1, use_container_width=True)
@@ -45,6 +46,7 @@ fig2 = px.bar(
     df, 
     x='date', 
     y='new_deaths',
+    title="New Deaths for the past 1 year",
     hover_data=['new_deaths', 'total_deaths']
 )
 st.plotly_chart(fig2, use_container_width=True)
@@ -52,7 +54,8 @@ st.plotly_chart(fig2, use_container_width=True)
 fig3 = px.bar(
     df, 
     x='date', 
-    y='total_tests'
+    y='total_tests',
+    title="Total Tests for the past 1 year",
 )
 st.plotly_chart(fig3, use_container_width=True)
 
@@ -60,6 +63,7 @@ fig4 = px.bar(
     df, 
     x='date', 
     y='people_fully_vaccinated',
+    title="Total Fully Vaccinated for the past 1 year"
 )
 st.plotly_chart(fig4, use_container_width=True)
 
