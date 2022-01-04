@@ -46,7 +46,6 @@ fig2 = px.bar(
     df, 
     x='date', 
     y='new_deaths',
-    color="new_deaths",
     hover_data=['new_deaths', 'total_deaths'], 
     title=f"New Deaths (as of {today}"
 )
@@ -75,7 +74,7 @@ text1 = base1.mark_text(
     text='total_tests:Q'
 )
 
-base2 = alt.Chart(df2).mark_bar().encode(
+base2 = alt.Chart(df).mark_bar().encode(
     x='monthdate(date):O',
     tooltip=['people_fully_vaccinated']
 ).properties(
