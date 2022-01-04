@@ -23,17 +23,19 @@ def load_data():
 df = load_data()
 
 today = datetime.now() + timedelta(hours=8)
-n_days_ago = today - timedelta(days=60)
+n_days_ago_past = today - timedelta(days=15)
+n_days_ago_past60 = today - timedelta(days=60)
 
 df = df.loc[df['location'] == 'Philippines']
 df = df.loc[df['date'] >= str(n_days_ago.date())]
+df1 = df.loc[df['date'] >= str(n_days_ago_past60.date())]
 
 st.markdown("<h1 style='text-align: center;'>PH Covid-19 Tracker</h1>", unsafe_allow_html=True)
 
 st.write("Source: https://covid.ourworldindata.org")
 
 fig1 = px.bar(
-    df, 
+    df1, 
     x='date', 
     y='new_cases',
     color="new_cases",
@@ -43,7 +45,7 @@ fig1.update_layout(width=1240)
 st.plotly_chart(fig1)
 
 fig2 = px.bar(
-    df, 
+    df1, 
     x='date', 
     y='new_deaths',
     color="new_deaths",
