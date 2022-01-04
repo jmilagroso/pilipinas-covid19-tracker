@@ -51,11 +51,6 @@ fig2 = px.bar(
 fig2.update_layout(width=1200)
 st.plotly_chart(fig2)
 
-n_days_ago = today - timedelta(days=15)
-df = load_data()
-df = df.loc[df['location'] == 'Philippines']
-df = df.loc[df['date'] >= str(n_days_ago.date())]
-
 fig3 = px.bar(
     df, 
     x='date', 
