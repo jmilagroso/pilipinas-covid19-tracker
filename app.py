@@ -33,7 +33,6 @@ def timed_lru_cache(seconds: int, maxsize: int = 128):
 
     return wrapper_cache
 
-@timed_lru_cache(3600)
 def load_data():
     data = pd.read_csv('https://covid.ourworldindata.org/data/owid-covid-data.csv')
 
