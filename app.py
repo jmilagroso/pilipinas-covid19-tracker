@@ -49,7 +49,7 @@ fig2 = px.bar(
     hover_data=['new_deaths', 'total_deaths'], 
     title=f"New Deaths (as of {today}"
 )
-fig2.update_layout(width=1240)
+fig2.update_layout(width=1200)
 st.plotly_chart(fig2)
 
 n_days_ago = today - timedelta(days=15)
