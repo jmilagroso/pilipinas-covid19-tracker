@@ -46,8 +46,7 @@ fig2 = px.bar(
     df, 
     x='date', 
     y='new_deaths',
-    hover_data=['new_deaths', 'total_deaths'], 
-    title=f"New Deaths (as of {today}"
+    hover_data=['new_deaths', 'total_deaths']
 )
 fig2.update_layout(width=1200)
 st.plotly_chart(fig2)
