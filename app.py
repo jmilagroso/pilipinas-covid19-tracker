@@ -79,4 +79,4 @@ st.plotly_chart(fig)
 
 st.write("Powered By Altair, Pandas, Plotly Express, Pytz and Streamlit")
 
-st.write("Made from Google Colab by Jay Milagroso <j.milagroso@gmail.com>")
+st.write("Jay Milagroso <j.milagroso@gmail.com>")
