@@ -39,7 +39,7 @@ fig1 = px.bar(
     color="new_cases",
     hover_data=['new_cases', 'total_cases']
 )
-fig1.update_layout(width=1260)
+fig1.update_layout(width=1240)
 st.plotly_chart(fig1)
 
 fig2 = px.bar(
@@ -50,7 +50,7 @@ fig2 = px.bar(
     hover_data=['new_deaths', 'total_deaths'], 
     title=f"New Deaths (as of {today}"
 )
-fig2.update_layout(width=1260)
+fig2.update_layout(width=1240)
 st.plotly_chart(fig2)
 
 base1 = alt.Chart(df).mark_bar().encode(
