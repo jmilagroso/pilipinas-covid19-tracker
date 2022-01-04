@@ -23,7 +23,7 @@ def load_data():
 df = load_data()
 
 today = datetime.now()
-n_days_ago_past = today - timedelta(days=60)
+n_days_ago = today - timedelta(days=60)
 
 df = df.loc[df['location'] == 'Philippines']
 df = df.loc[df['date'] >= str(n_days_ago.date())]
@@ -53,7 +53,7 @@ fig2 = px.bar(
 fig2.update_layout(width=1240)
 st.plotly_chart(fig2)
 
-n_days_ago_past = today - timedelta(days=15)
+n_days_ago = today - timedelta(days=15)
 df = load_data()
 df = df.loc[df['location'] == 'Philippines']
 df = df.loc[df['date'] >= str(n_days_ago.date())]
