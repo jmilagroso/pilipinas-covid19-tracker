@@ -95,7 +95,6 @@ fig1 = px.bar(
     height=500
 )
 
-
 fig2 = px.bar(
     df, 
     x='date', 
@@ -104,8 +103,9 @@ fig2 = px.bar(
     title=f"New Deaths (as of {today}",
     height=500
 )
+
 with st.empty():
-    st.plotly_chart(fig1) | st.plotly_chart(fig2)
+    (st.plotly_chart(fig1)) | (st.plotly_chart(fig2))
 
 base1 = alt.Chart(df).mark_bar().encode(
     x='monthdate(date):O',
