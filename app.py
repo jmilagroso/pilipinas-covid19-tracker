@@ -95,7 +95,7 @@ fig = px.bar(
     title=f"New Cases (as of {today}",
     height=500
 )
-fig.show()
+st.plotly_chart(fig)
 
 
 base1 = alt.Chart(df).mark_bar().encode(
