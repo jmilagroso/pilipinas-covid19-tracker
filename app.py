@@ -36,6 +36,7 @@ fig1 = px.bar(
     df, 
     x='date', 
     y='new_cases',
+    color="new_cases",
     hover_data=['new_cases', 'total_cases']
 )
 fig1.update_layout(width=1260)
@@ -45,6 +46,7 @@ fig2 = px.bar(
     df, 
     x='date', 
     y='new_deaths',
+    color="new_deaths",
     hover_data=['new_deaths', 'total_deaths'], 
     title=f"New Deaths (as of {today}"
 )
