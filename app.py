@@ -15,24 +15,6 @@ from urllib.request import urlopen
 st.set_page_config(page_title="PH Covid 19 Tracker",layout='wide')
 alt.renderers.enable('default')
 
-def timed_lru_cache(seconds: int, maxsize: int = 128):
-    def wrapper_cache(func):
-        func = lru_cache(maxsize=maxsize)(func)
-        func.lifetime = timedelta(seconds=seconds)
-        func.expiration = datetime.utcnow() + func.lifetime
-
-        @wraps(func)
-        def wrapped_func(*args, **kwargs):
-            if datetime.utcnow() >= func.expiration:
-                func.cache_clear()
-                func.expiration = datetime.utcnow() + func.lifetime
-
-            return func(*args, **kwargs)
-
-        return wrapped_func
-
-    return wrapper_cache
-
 def load_data():
     data = pd.read_csv('https://covid.ourworldindata.org/data/owid-covid-data.csv')
 
@@ -41,7 +23,7 @@ def load_data():
 df = load_data()
 
 today = datetime.now() + timedelta(hours=8)
-n_days_ago = today - timedelta(days=14)
+n_days_ago = today - timedelta(days=15)
 
 df = df.loc[df['location'] == 'Philippines']
 df = df.loc[df['date'] >= str(n_days_ago.date())]
@@ -50,13 +32,13 @@ st.markdown("<h1 style='text-align: center;'>PH Covid-19 Tracker</h1>", unsafe_a
 
 st.write("Source: https://covid.ourworldindata.org")
 
-
 fig1 = px.bar(
     df, 
     x='date', 
     y='new_cases',
     hover_data=['new_cases', 'total_cases']
 )
+fig1.update_layout(height=500, width=800)
 st.plotly_chart(fig1)
 
 fig2 = px.bar(
