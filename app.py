@@ -61,16 +61,14 @@ fig3 = px.bar(
     x='date', 
     y='total_tests'
 )
-fig3.update_layout(use_container_width=True)
-st.plotly_chart(fig3)
+st.plotly_chart(fig3, use_container_width=True)
 
 fig4 = px.bar(
     df, 
     x='date', 
     y='people_fully_vaccinated',
 )
-fig4.update_layout(use_container_width=True)
-st.plotly_chart(fig4)
+st.plotly_chart(fig4, use_container_width=True)
 
 n_days_ago = today - timedelta(days=90)
 
