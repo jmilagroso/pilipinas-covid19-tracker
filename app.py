@@ -32,6 +32,12 @@ st.markdown("<h1 style='text-align: center;'>PH Covid-19 Tracker</h1>", unsafe_a
 
 st.write("Source: https://covid.ourworldindata.org")
 
+
+fig = px.line(df, x='date', y='new_cases')
+fig.add_bar(df, x='date', y='new_cases')
+fig.show()
+st.plotly_chart(fig, use_container_width=True)
+
 fig1 = px.bar(
     df, 
     x='date', 
