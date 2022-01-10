@@ -86,6 +86,6 @@ fig6 = px.bar(
 )
 st.plotly_chart(fig6, use_container_width=True)
 
-st.write("Powered By Altair, Pandas, Plotly Express, Pytz and Streamlit")
+st.write("Powered By Pandas, Plotly Express and Streamlit")
 
 st.write("Jay Milagroso <j.milagroso@gmail.com>")
