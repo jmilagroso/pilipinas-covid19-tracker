@@ -22,15 +22,31 @@ def load_data():
 
 df = load_data()
 
-today = datetime.now()
-n_days_ago = today - timedelta(days=365)
+filter_duration = {
+    730: "Past 2 Years", 
+    365: "Past Year", 
+    183: "Past 6 Months", 
+    91: "Past 3 Months", 
+    31: "Past Month",
+    16: "Past 2 Weeks",
+    8: "Past 7 Days"
+}
 
-df = df.loc[df['location'] == 'Philippines']
-df = df.loc[df['date'] >= str(n_days_ago.date())]
+def format_func(option):
+    return filter_duration[option]
+
 
 st.markdown("<h1 style='text-align: center;'>PH Covid-19 Tracker</h1>", unsafe_allow_html=True)
 
 st.write("Source: https://covid.ourworldindata.org")
+
+option = st.selectbox("", options=list(filter_duration.keys()), format_func=format_func, index=0)
+
+today = datetime.now()
+n_days_ago = today - timedelta(days=option)
+
+df = df.loc[df['location'] == 'Philippines']
+df = df.loc[df['date'] >= str(n_days_ago.date())]
 
 fig1 = px.bar(
     df, 
