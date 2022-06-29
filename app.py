@@ -40,7 +40,7 @@ st.markdown("<h1 style='text-align: center;'>PH Covid-19 Tracker</h1>", unsafe_a
 
 st.write("Source: https://covid.ourworldindata.org")
 
-option = st.selectbox("", options=list(filter_duration.keys()), format_func=format_func, index=0)
+option = st.selectbox("", options=list(filter_duration.keys()), format_func=format_func, index=3)
 
 today = datetime.now()
 n_days_ago = today - timedelta(days=option)
